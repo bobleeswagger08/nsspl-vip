@@ -1,5 +1,29 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ActionBar [title]="title"></ActionBar>
-<StackLayout  class="p-20">
-    <Label [text]="'Welcome to ' + title + '!'" class="h1 text-center" textWrap="true"></Label>
-</StackLayout>
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+      <Image class="m-b-30" src="~/assets/images/wide-1.jpg" loadMode="async" stretch="aspectFit"></Image>
+      <StackLayout class="input-field">
+        <TextField hint="User Id" [(ngModel)]='model.userId' keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+      </StackLayout>
+  
+      <StackLayout class="input-field">
+        <TextField hint="Password"  [(ngModel)]='model.password' secure="true" autocorrect="false" autocapitalizationType="none"></TextField>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+  
+      <StackLayout *ngIf="!isLoggingIn" class="input-field">
+        <TextField hint="Confirm password" secure="true" autocorrect="false" autocapitalizationType="none"></TextField>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+  
+      <Button [text]="isLoggingIn ? 'Log In' : 'Sign Up'" class="btn btn-primary" (tap)="submit()"></Button>
+      <!-- <Label *ngIf="isLoggingIn" text="Forgot your password?"></Label> -->
+    </StackLayout>
+  
+    <!-- <Label (tap)="toggleForm()">
+      <FormattedString>
+        <Span [text]="isLoggingIn ? 'Don’t have an account? ' : 'Back to Login'"></Span>
+        <Span [text]="isLoggingIn ? 'Sign up' : ''" class="bold"></Span>
+      </FormattedString>
+    </Label> -->
+  </FlexboxLayout>
