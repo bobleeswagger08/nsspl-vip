@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApplicationSettings } from '@nativescript/core';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { UserService } from '../services/user.service';
 export class HomeComponent implements OnInit {
   isLoggingIn = true;
   model:any={};
-  constructor(private user: UserService) { }
+  constructor(private router: Router,private user: UserService) { }
 
   ngOnInit() {
     this.model.userId='';
@@ -28,7 +30,8 @@ export class HomeComponent implements OnInit {
       .subscribe(signInData => {
         let result = signInData;
         if (result.userSession && result.status === 1) {
-          alert(result.userSession);
+          ApplicationSettings.setString('loginuser', JSON.stringify(result.userSession));
+          this.router.navigate(['/listoffice']);
           return true;
         }
         alert(result.errorMessage);

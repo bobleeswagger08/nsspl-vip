@@ -1,0 +1,17 @@
+<StackLayout class="form">
+    <StackLayout>
+        <Button [text]="'Go to list'" class="btn btn-primary" (tap)="listOffice()"></Button>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <TextField hint="Code" [(ngModel)]='model.code' autocorrect="false" autocapitalizationType="none"></TextField>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <TextField hint="Description" [(ngModel)]='model.description'  autocorrect="false" autocapitalizationType="none"></TextField>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <ListPicker hint="Parent" [items]="listParent" textField="description" [(ngModel)]='model.parentUnitId'></ListPicker>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <TextField hint="Note" height="100px" [(ngModel)]='model.note' autocorrect="false" autocapitalizationType="none"></TextField>
+    </StackLayout>
+</StackLayout>

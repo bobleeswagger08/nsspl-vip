@@ -1,0 +1,14 @@
+<StackLayout>
+    <StackLayout>
+        <Button [text]="'Add Office'" class="btn btn-primary" (tap)="addOffice()"></Button>
+    </StackLayout>
+    <StackLayout>
+        <ListView [items]="listParent" class="list-group" backgroundColor="#64D9EC" separatorColor="blue">
+            <ng-template let-item="item">
+                <GridLayout height="100">
+                    <Label [text]="item.description" fontSize="18" class="list-group-item" color="black"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+    </StackLayout>
+</StackLayout>
