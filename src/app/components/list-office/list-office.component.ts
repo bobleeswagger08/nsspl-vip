@@ -5,7 +5,7 @@ import { IOfficeListParent } from '../model/office';
 @Component({
   selector: 'app-list-office',
   templateUrl: './list-office.component.html',
-  styleUrls: ['./list-office.component.css']
+  styleUrls: ['./list-office.component.scss']
 })
 export class ListOfficeComponent implements OnInit {
   listParent:IOfficeListParent[]

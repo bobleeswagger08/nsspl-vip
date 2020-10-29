@@ -1,8 +1,9 @@
-<StackLayout>
+<StackLayout class="gradient-bg">
     <StackLayout>
         <Button [text]="'Add Office'" class="btn btn-primary" (tap)="addOffice()"></Button>
     </StackLayout>
-    <StackLayout>
+    <ScrollView orientation="horizontal" height="650">
+    <StackLayout height="650">
         <ListView [items]="listParent" class="list-group" backgroundColor="#64D9EC" separatorColor="blue">
             <ng-template let-item="item">
                 <GridLayout height="100">
@@ -11,4 +12,5 @@
             </ng-template>
         </ListView>
     </StackLayout>
+    </ScrollView>
 </StackLayout>

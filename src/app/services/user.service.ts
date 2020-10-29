@@ -22,4 +22,7 @@ export class UserService {
         return this.httpClient.get(this.urlOffice+"/00000000-0000-0000-0000-000000000000/list");
     }
   }
+  createOrganisationUnit(resource) {
+    return this.httpClient.post(this.urlOffice, resource);
+  }
 }

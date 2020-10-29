@@ -6,12 +6,14 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   isLoggingIn = true;
   model:any={};
-  constructor(private router: Router,private user: UserService) { }
+  constructor(private router: Router,private user: UserService) {
+    
+   }
 
   ngOnInit() {
     this.model.userId='';
@@ -25,7 +27,8 @@ export class HomeComponent implements OnInit {
   // }
 
   submit() {
-    console.log(this.model.userId1);
+    //console.log(this.model.userId1);
+    ApplicationSettings.clear();
       this.user.signInUser(this.model)
       .subscribe(signInData => {
         let result = signInData;
