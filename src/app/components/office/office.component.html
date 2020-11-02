@@ -1,1 +1,43 @@
-<p>office works!</p>
+<div id="login">
+    <h3 class="text-center text-white pt-5">Office Entry Form</h3>
+    <button type="button" class="btn btn-default" onclick="listOffice()">List Office</button>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <!-- <form id="login-form" class="form" action="submit()" method="post"> -->
+                        <h3 class="text-center text-info">Login</h3>
+                        <div class="form-group">
+                            <label  class="text-info">Code:</label><br>
+                            <input type="text" [(ngModel)]='model.code' class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info">Description:</label><br>
+                            <input type="text"  [(ngModel)]='model.description' class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label  class="text-info">Parent Office:</label><br>
+                          <select class="form-control"  [(ngModel)]='model.parentUnitId'>
+                            <option *ngFor="let item of listParent" [value]="item.id">
+                                {{item.description}}
+                            </option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label  class="text-info">Note:</label><br>
+                        <textarea class="form-control" [(ngModel)]='model.note' rows="5" id="Note"></textarea>
+                    </div>
+                        <div class="form-group">
+                            <!-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
+                            <!-- <input type="submit" name="submit" class="btn btn-info btn-md" onclick="submit()" value="submit"> -->
+                            <button type="button" class="btn btn-default" onclick="saveOffice()">Submit</button>
+                          </div>
+                        <!-- <div id="register-link" class="text-right">
+                            <a href="#" class="text-info">Register here</a>
+                        </div> -->
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

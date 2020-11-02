@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApplicationSettings } from '@nativescript/core';
+
 import { UserService } from '../services/user.service';
+import { LocalStorage} from '../components/local-storage/local-storage';
 
 @Component({
   selector: 'app-home',
@@ -28,12 +29,12 @@ export class HomeComponent implements OnInit {
 
   submit() {
     //console.log(this.model.userId1);
-    ApplicationSettings.clear();
+      LocalStorage.clear();
       this.user.signInUser(this.model)
       .subscribe(signInData => {
         let result = signInData;
         if (result.userSession && result.status === 1) {
-          ApplicationSettings.setString('loginuser', JSON.stringify(result.userSession));
+          LocalStorage.setValue('loginuser', JSON.stringify(result.userSession));
           this.router.navigate(['/listoffice']);
           return true;
         }

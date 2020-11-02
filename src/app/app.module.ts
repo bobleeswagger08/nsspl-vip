@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListOfficeComponent } from '@src/app/components/list-office/list-office.component';
 import { OfficeComponent } from '@src/app/components/office/office.component';
 import { HeaderInterceptor } from './services/interceptor/http-header-interceptor';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { HeaderInterceptor } from './services/interceptor/http-header-intercepto
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
+    FormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true }

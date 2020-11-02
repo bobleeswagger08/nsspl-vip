@@ -1,1 +1,15 @@
-<p>list-office works!</p>
+<div id="login">
+    <h3 class="text-center text-white pt-5">Office List</h3>
+    <button type="button" class="btn btn-default" onclick="addOffice()">List Office</button>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <ul class="list-group"  *ngFor="let item of listParent">
+                        <li class="list-group-item list-group-item-info">{{item.description}}</li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
